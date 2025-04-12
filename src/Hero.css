@@ -1,0 +1,117 @@
+.hero-header {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack title and subtitle vertically */
+    align-items: stretch; /* Stretch from far left to far right */
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px; /* Add side padding for spacing */
+  }
+  
+  .hero-content {
+    width: 100%;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .hero-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffffff, #cccccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.5);
+    animation: glowPulse 3s infinite ease-in-out;
+  }
+  
+  .hero-subtitle {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    font-size: 2rem;
+    width: 100%; /* Full width */
+    margin: 20px 0 0 0; /* Remove auto-centering */
+    font-weight: 800; /* Make it bold */
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+    opacity: 1; /* Full opacity for clearer white */
+    animation: fadeIn 2.5s ease-out;
+  }
+  
+  /* About Section */
+  .about-section {
+    margin-top: 50px;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .about-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff; /* Fixed: Make heading white */
+  }
+  
+  .about-section p {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes glowPulse {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+  }
+  
+  
+  

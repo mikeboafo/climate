@@ -1,0 +1,150 @@
+/* General Container */
+#contact {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .section-title p {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Form Styles */
+  form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+    outline: none;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  /* Button */
+  .btn-custom {
+    background: linear-gradient(45deg, #4caf50, #81c784);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-custom:hover {
+    background: linear-gradient(45deg, #43a047, #66bb6a);
+    transform: translateY(-2px);
+  }
+  
+  /* Contact Info */
+  .contact-info {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  }
+  
+  .contact-item {
+    margin-bottom: 15px;
+  }
+  
+  .contact-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-item p {
+    color: #555;
+  }
+  
+  .contact-item i {
+    color: #4caf50;
+    margin-right: 8px;
+  }
+  
+  /* Social Icons */
+  .social ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social ul li a {
+    display: inline-block;
+    color: #fff;
+    background: #4caf50;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+  
+  .social ul li a:hover {
+    background: #388e3c;
+  }
+  
+  /* Footer */
+  #footer {
+    background: #333;
+    padding: 20px 0;
+    color: #fff;
+    margin-top: 40px;
+  }
+  
+  #footer a {
+    color: #81c784;
+    text-decoration: none;
+  }
+  
+  #footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 15px;
+    }
+  
+    form {
+      padding: 20px;
+    }
+  
+    .btn-custom {
+      width: 100%;
+    }
+  }
+  
