@@ -1,182 +1,190 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
-import React from "react";
+import React, { useState } from "react";
 
+// Initial state
 const initialState = {
   name: "",
+  phone: "",
   email: "",
-  message: "",
+  amount: "",
+  beneficiaryName: "",
+  beneficiaryClass: "",
+  beneficiaryHouse: "",
 };
 
-export const PolicyAnalysis = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
+export const PolicyAnalysis = () => {
+  const [formData, setFormData] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
-
-  const clearState = () => setState({ ...initialState });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
-
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    console.log("Form Data:", formData);
+    // setFormData(initialState);
   };
 
   return (
-    <div>
-      <div id="contact">
-        <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
-                <h2>Get In Touch</h2>
-                <p>
-                  Please fill out the form below to send us an email and we will
-                  get back to you as soon as possible.
-                </p>
-              </div>
-              <form name="sentMessage" validate onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        placeholder="Name"
-                        required
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                        required
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    id="message"
-                    className="form-control"
-                    rows="4"
-                    placeholder="Message"
-                    required
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-                <button type="submit" className="btn btn-custom btn-lg">
-                  Send Message
-                </button>
-              </form>
+    <>
+      <div className="policy-analysis container py-5">
+        <form onSubmit={handleSubmit}>
+          {/* Donor's Information */}
+          <section className="donors-information mb-5">
+            <h3>Donor's Information:</h3>
+
+            <div className="form-group mb-3">
+              <label>
+                Name <span className="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                placeholder="Enter anonymous, if you would like to remain anonymous"
+                required
+                value={formData.name}
+                onChange={handleChange}
+              />
             </div>
-          </div>
 
-          <div className="col-md-3 col-md-offset-1 contact-info">
-  <div className="contact-item">
-    <h3 className="text-xl font-semibold mb-4 text-white">Contact Info</h3>
-
-    <p className="mb-4">
-      <span className="flex items-center mb-1 text-white">
-        <i className="fa fa-map-marker mr-2" aria-hidden="true"></i>
-        Address
-      </span>
-      <span className="text-gray-300">
-        {props.data?.address || "No address available"}
-      </span>
-    </p>
-
-    <p className="mb-4">
-      <span className="flex items-center mb-1 text-white">
-        <i className="fa fa-phone mr-2" aria-hidden="true"></i>
-        Phone
-      </span>
-      {props.data?.phone ? (
-        <a
-          href={`tel:${props.data.phone}`}
-          className="text-blue-300 hover:underline"
-          aria-label="Phone Number"
-        >
-          {props.data.phone}
-        </a>
-      ) : (
-        <span className="text-gray-300">No phone available</span>
-      )}
-    </p>
-
-    <p className="mb-4">
-      <span className="flex items-center mb-1 text-white">
-        <i className="fa fa-envelope-o mr-2" aria-hidden="true"></i>
-        Email
-      </span>
-      {props.data?.email ? (
-        <a
-          href={`mailto:${props.data.email}`}
-          className="text-blue-300 hover:underline"
-          aria-label="Email Address"
-        >
-          {props.data.email}
-        </a>
-      ) : (
-        <span className="text-gray-300"> climateafricadoelawson@gmail.com</span>
-      )}
-    </p>
-  </div>
-</div>
-
-
-
-
-          {/* Email icon with mailto link */}
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={`mailto:${props.data ? props.data.email : "climateafricadoelawson@gmail.com"}`}>
-                      <i className="fa fa-envelope"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <div className="form-group mb-3">
+              <label>
+                Phone <span className="text-danger">*</span>
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                className="form-control"
+                required
+                value={formData.phone}
+                onChange={handleChange}
+              />
             </div>
-          </div>
 
-        </div>
+            <div className="form-group mb-3">
+              <label>
+                Email <span className="text-danger">*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="form-control"
+                required
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group mb-3">
+              <label>
+                Amount Pledged (GHS) <span className="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                name="amount"
+                className="form-control"
+                placeholder="Enter amount"
+                required
+                value={formData.amount}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d*\.?\d*$/.test(value)) {
+                    setFormData((prevState) => ({
+                      ...prevState,
+                      amount: value,
+                    }));
+                  }
+                }}
+              />
+            </div>
+          </section>
+
+          {/* Donating on Behalf Of */}
+          <section className="donating-on-behalf-of mb-5">
+            <h3>Donating on Behalf Of:</h3>
+
+            <div className="form-group mb-3">
+              <label>Name</label>
+              <select
+                name="beneficiaryName"
+                className="form-control"
+                value={formData.beneficiaryName}
+                onChange={handleChange}
+              >
+                <option value="">-- Select Name --</option>
+                <option value="Ama Boateng">Ama Boateng</option>
+                <option value="Kwame Mensah">Kwame Mensah</option>
+                <option value="Akosua Dede">Akosua Dede</option>
+              </select>
+            </div>
+
+            <div className="form-group mb-3">
+              <label>Class</label>
+              <select
+                name="beneficiaryClass"
+                className="form-control"
+                value={formData.beneficiaryClass}
+                onChange={handleChange}
+              >
+                <option value="">-- Select Class --</option>
+                <option value="Form 1">Form 1</option>
+                <option value="Form 2">Form 2</option>
+                <option value="Form 3">Form 3</option>
+              </select>
+            </div>
+
+            <div className="form-group mb-3">
+              <label>House</label>
+              <select
+                name="beneficiaryHouse"
+                className="form-control"
+                value={formData.beneficiaryHouse}
+                onChange={handleChange}
+              >
+                <option value="">-- Select House --</option>
+                <option value="Volta">Volta</option>
+                <option value="Kwahu">Kwahu</option>
+                <option value="Western">Western</option>
+              </select>
+            </div>
+          </section>
+
+          {/* Submit Button */}
+          <button type="submit" className="btn btn-custom btn-lg mt-3">
+            Make payment
+          </button>
+        </form>
       </div>
 
-      <div id="footer">
-        <div className="container text-center">
-          <p>
-            &copy; 2025 Climate Africa. Design by{" Michael Boafo "}
-          </p>
+      {/* Footer */}
+      <div id="footer" className="mt-5">
+        <div className="container footer-content">
+          <div className="footer-left">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-twitter"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-youtube"></i>
+            </a>
+          </div>
+          <div className="footer-right">
+            <div className="footer-links">
+              <a href="#about">About</a>
+              <a href="#terms">Terms & Conditions</a>
+              <a href="#help">Help</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
-
 

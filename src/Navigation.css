@@ -1,0 +1,75 @@
+/* Navigation container */
+.navigation-bar.nav-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170px; /* Adjusted height for better spacing */
+    z-index: 1000;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center logo and text horizontally */
+    padding: 0 40px; /* Adjusted padding for more side space */
+    
+    /* Darker background color overlay */
+    background-color: rgba(0.8, 0.8, 0.8, 0.8); /* Darker overlay for stronger contrast */
+    
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container for background image */
+.navigation-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Full height of navigation container */
+    background-image: url("./bg1.jpg"); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   opacity: 0.2; /* Adjusted opacity for better visibility of text */
+    background-color: rgba(0.5, 0.5, 0.5, 0.5); /* Darkening the background */
+    z-index: -1; /* Place it behind the content */
+}
+
+/* Wrapper for logo + text grouped */
+.nav-logo-text-group {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center both logo and text */
+    width: 100%; /* Set to 100% to make logo and text fill the space */
+}
+
+/* Logo styling */
+.nav-logo {
+    height: 150px; /* Adjusted for better proportion */
+    width: 150px; /* Corrected width typo (was "150x") */
+    object-fit: contain;
+    margin-right: 20px; /* Adds space between logo and text */
+}
+
+/* Text beside logo */
+.nav-text {
+    font-size: 3.5rem; /* Increased font size for a more prominent text */
+    font-weight: 900; /* Extra bold */
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Darker shadow for contrast */
+    margin-left: 20px; /* Space between text and logo */
+    text-align: left; /* Align text to the left for natural flow */
+    flex-grow: 1; /* Allow text to stretch towards the right */
+}
+
+
+
+
+
+  
+  
+  
+  
